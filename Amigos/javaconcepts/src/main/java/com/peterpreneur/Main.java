@@ -1,7 +1,6 @@
 package com.peterpreneur;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,15 +19,19 @@ public class Main {
         }
 
         List<String> names = List.of("Matt", "Mark", "Luke");
-        // regular for each
-        for (String name : names) {
-            System.out.println("ForEach: " + name);
-        }
+        // // regular for each
+        // for (String name : names) {
+        // System.out.println("ForEach: " + name);
+        // }
+
         // for each with Lambda
         names.forEach(name -> System.out.println("Lambda ForEach: " + name));
 
+        // Consumer<String> consumer = System.out::println;
 
-        Consumer<String> consumer = name -> System.out.println("Consumer: " + name);
-        names.forEach(consumer);
+        names.forEach(System.out::println);
+
+        // Consumer<String> consumer = name -> System.out.println("Consumer: " + name);
+        // names.forEach(name -> System.out.println("Consumer: " + name.toUpperCase()));
     };
 }
